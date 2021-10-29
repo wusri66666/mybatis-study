@@ -4,7 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.wzj.dao.UserMapper">
-    <select id="getUserList" resultType="com.wzj.pojo.User">
+    <select id="getUser" resultType="com.wzj.pojo.User">
         select * from mybatis.user
     </select>
+
+    <select id="getUserById" resultType="com.wzj.pojo.User">
+        select * from mybatis.user where id = #{id}
+    </select>
+
+    <select id="getUserByNP" resultType="com.wzj.pojo.User">
+        select * from mybatis.user where name = #{name} and pwd = #{pwd}
+    </select>
+
+    <select id="getUserByNP2" parameterType="map" resultType="com.wzj.pojo.User">
+        select * from mybatis.user where name = #{name} and pwd = #{pwd}
+    </select>
+
+    <insert id="addUser" parameterType="com.wzj.pojo.User">
+        insert into user (id, name, pwd) values (#{id},#{name},#{pwd})
+    </insert>
+
+    <update id="updateUser" parameterType="com.wzj.pojo.User">
+        update user set name = #{name}, pwd = #{pwd} where id = #{id};
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id = #{id};
+    </delete>
 </mapper>

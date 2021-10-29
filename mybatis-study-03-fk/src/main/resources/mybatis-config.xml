@@ -21,9 +21,9 @@
             </dataSource>
         </environment>
     </environments>
-
     <mappers>
-<!--        <mapper resource="com/wzj/dao/UserMapper.xml" />-->
-        <mapper class="com.wzj.dao.UserMapper" />
+        <mapper class="com.wzj.dao.StudentMapper" />
+        <mapper class="com.wzj.dao.TeacherMapper" />
     </mappers>
+
 </configuration>
